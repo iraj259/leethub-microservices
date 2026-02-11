@@ -1,38 +1,39 @@
 # 🚀 Leethub Microservices
 
-A high-performance **LeetCode-style online judge** built with a **decoupled microservices architecture**, designed for **speed, scalability, and reliability**. Handles 100+ submissions per minute and provides **real-time updates** on code execution. 💻⚡
+**Leethub** is a **high-performance LeetCode-style online judge** built with **TypeScript, Fastify, Node.js, and Docker**, designed for **speed, scalability, and reliability**.  
+It can handle **100+ submissions per minute** and provides **real-time execution feedback** for Python, Java, and C++ code. 💻⚡  
 
 ---
 
 ## ✨ Features
 
-* **Decoupled Microservices:** Modular backend for easy maintenance and scaling. 🛠️
-* **Asynchronous & Synchronous Communication:** Handles multiple submissions efficiently with queue-based async pipelines and direct sync calls where needed. ⏱️
-* **Secure Docker Sandboxing:** Runs Python, Java, and C++ safely in isolated containers. 🐳
-* **Redis Caching & Queue Management:** Optimizes throughput and reduces response time. ⚡
-* **Real-Time Updates:** Socket.IO reduces perceived latency by 70%. 📡
-* **Optimized Worker Services:** ~95% faster code evaluation. 🚀
+- **Decoupled Microservices:** Each service is independent, making the system easy to maintain and scale. 🛠️  
+- **Asynchronous & Synchronous Workflows:** Queue-based async pipelines handle multiple submissions efficiently, with sync calls for critical tasks. ⏱️  
+- **Secure Docker Sandboxing:** Runs user code in isolated containers for safety. 🐳  
+- **Redis Caching & Queues:** Optimizes throughput and reduces latency under high submission load. ⚡  
+- **Real-Time Updates:** Socket.IO integration provides live execution feedback. 📡  
+- **Optimized Workers:** Efficient job processing for ~95% faster code evaluation. 🚀  
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Backend:** Node.js, Express
-* **Real-Time:** Socket.IO
-* **Caching/Queue:** Redis
-* **Containers:** Docker, Docker Compose
-* **Languages:** Python, Java, C++
+- **Backend:** Node.js, TypeScript, Fastify  
+- **Real-Time:** Socket.IO  
+- **Caching/Queue Management:** Redis, BullMQ  
+- **Containerization:** Docker, Docker Compose  
+- **Languages Supported:** JavaScript, TypeScript, Python, Java, C++  
 
 ---
 
 ## 🏗️ Microservices Overview
 
-| Service Name   | Responsibility                                                            |
-| -------------- | ------------------------------------------------------------------------- |
-| **Submission** | Receives user submissions and pushes them to the queue for evaluation. 📨 |
-| **Evaluator**  | Executes code in Docker sandboxes, returns results to the queue. 🐳       |
-| **Problem**    | Manages problem definitions, test cases, and submission validation. 📚    |
-| **Socket**     | Sends real-time status updates to clients via WebSocket connections. 📡   |
+| Service Name   | Responsibility |
+| -------------- | -------------- |
+| **Submission** | Receives user submissions and pushes them to queues for evaluation. 📨 |
+| **Evaluator**  | Executes code inside Docker sandboxes and pushes results back to the queue. 🐳 |
+| **Problem**    | Manages problem definitions, test cases, and validates submissions. 📚 |
+| **Socket**     | Sends real-time status updates to clients via WebSockets. 📡 |
 
 ---
 
@@ -40,15 +41,20 @@ A high-performance **LeetCode-style online judge** built with a **decoupled micr
 
 ![System Design](systemdesign.png)
 
-The system is structured into **independent services** connected through asynchronous pipelines and Redis. Each service can scale independently to handle high submission loads efficiently. ⚡
+The architecture is **independent services connected via Redis queues and async pipelines**, allowing **scalable and fault-tolerant** handling of large submission volumes. ⚡  
 
 ---
 
 ## 🎯 Goal
 
-Provide a **robust, scalable online judge** suitable for **learning, competitive coding, and real-world assessments**. 🏆
+Build a **robust, secure, and scalable online judge** suitable for:  
+
+- Learning and practicing competitive coding  
+- Running coding assessments for teams or contests  
+- Real-time problem-solving and debugging  
 
 ---
+
 
 ## ⚙️ Setup & Installation
 
@@ -64,13 +70,6 @@ git clone https://github.com/yourusername/leethub-microservices.git
 
 Create a `.env` file in each service directory based on requirements.
 
-**Frontend (leetcode-clone-nextjs):**
-
-```
-DATABASE_URL="postgresql://..."
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="..."
-CLERK_SECRET_KEY="..."
-```
 
 **Problem Service:**
 
