@@ -1,0 +1,8 @@
+# Node / MERN
+node_modules/
+dist/
+.env
+*.log
+
+# Ignore everything else outside the project folder
+../*
